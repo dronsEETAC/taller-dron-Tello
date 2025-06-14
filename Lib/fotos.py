@@ -22,8 +22,7 @@ def takePictureComputerButtonClick ():
 def takePictureDroneButtonClick ():
     global tello
     frame = tello.get_frame_read().frame
-    frame_rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-    image = Image.fromarray(frame_rgb)
+    image = Image.fromarray(frame)
     max_size = (400, 300)
     image.thumbnail(max_size)
     dronePicturePanel.image = ImageTk.PhotoImage(image)

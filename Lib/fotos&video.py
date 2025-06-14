@@ -12,7 +12,8 @@ def takeVideoStream ():
     while takingVideo:
         telloFrame = tello.get_frame_read().frame
         telloFrame = cv.resize(telloFrame, (360, 240))
-        cv.imshow("tello", telloFrame)
+        frame_rgb = cv.cvtColor(telloFrame, cv.COLOR_BGR2RGB)
+        cv.imshow("tello", frame_rgb)
         cv.waitKey(1)
     cv.destroyWindow ('tello')
 
@@ -30,8 +31,7 @@ def stopVideoButtonClick ():
 def takePictureButtonClick ():
     global tello
     frame = tello.get_frame_read().frame
-    frame_rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-    image = Image.fromarray(frame_rgb)
+    image = Image.fromarray(frame)
     max_size = (400, 300)
     image.thumbnail(max_size)
     picturePanel.image = ImageTk.PhotoImage(image)

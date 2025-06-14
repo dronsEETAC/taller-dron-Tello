@@ -1,4 +1,4 @@
-import cv2
+import cv2 as cv
 import mediapipe as mp
 
 
@@ -26,11 +26,11 @@ def prepareBody(image):
 
 
     image.flags.writeable = False
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
     results = pose.process(image)
     image.flags.writeable = True
 
-    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+    image = cv.cvtColor(image, cv.COLOR_RGB2BGR)
     mp_drawing.draw_landmarks(
         image,
         results.pose_landmarks,
@@ -43,13 +43,13 @@ def prepareBody(image):
     return bodyLandmarks, image
 
 
-cap = cv2.VideoCapture(0)
+cap = cv.VideoCapture(0)
 initialize()
 
 while True:
     result, computerFrame = cap.read()
     if result:
-        computerFrame = cv2.resize(computerFrame, (360, 240))
+        computerFrame = cv.resize(computerFrame, (720,480))
         bodyLandmarks, frameWithLandmarks = prepareBody(computerFrame)
-        cv2.imshow("computer", frameWithLandmarks)
-        cv2.waitKey(1)
+        cv.imshow("computer", frameWithLandmarks)
+        cv.waitKey(1)
