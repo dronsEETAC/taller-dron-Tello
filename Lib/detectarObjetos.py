@@ -30,11 +30,8 @@ while cap.isOpened():
     if not ret:
         break
 
-    # Convertir frame a RGB para YOLO
-    img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
     # Inferencia con el modelo
-    results = model(img_rgb)
+    results = model(frame)
 
     # Procesar resultados
     for *box, conf, cls in results.xyxy[0]:
@@ -45,6 +42,7 @@ while cap.isOpened():
             cv2.putText(frame, label, (x1, y1 - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
             print ("BANANA")
+
         elif int(cls.item()) == CLOCK_CLASS_ID:
             x1, y1, x2, y2 = map(int, box)
             label = f"Clock {conf:.2f}"
@@ -59,6 +57,7 @@ while cap.isOpened():
             cv2.putText(frame, label, (x1, y1 - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
             print ("DONUT")
+
         elif int(cls.item()) == CARROT_CLASS_ID:
             x1, y1, x2, y2 = map(int, box)
             label = f"Carrot {conf:.2f}"
@@ -87,3 +86,4 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
