@@ -1,5 +1,5 @@
 import cv2 as cv
-import mediapipe as mp
+import mediapipe as mp # instalar version 0.10.21
 
 
 def initialize ():
