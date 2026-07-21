@@ -9,9 +9,9 @@
    torch   
    seaborn   
    tqdm   
-5. Si al ejecutar el programa cuerpo.py o el programa detectarObjetos.py aparecce este error:
-       ImportError: DLL load failed while importing _framework_bindings:
-       The specified module could not be found.
+5. Si al ejecutar el programa cuerpo.py o el programa detectarObjetos.py aparecce este error:    
+       ImportError: DLL load failed while importing _framework_bindings:     
+       The specified module could not be found.      
 
    instalar Microsoft Visual C++ Redistributable 2015–2022 (x64) https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170
    
