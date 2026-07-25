@@ -16,4 +16,7 @@
 
    instalar Microsoft Visual C++ Redistributable 2015–2022 (x64) https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170
    
-     
+# Videos de soporte para las instalaciones    
+
+ https://www.youtube.com/playlist?list=PLLRPsiS0C42Q
+
